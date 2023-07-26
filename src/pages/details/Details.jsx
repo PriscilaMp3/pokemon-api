@@ -12,18 +12,20 @@ const Detallespokemon = ({ pokemon }) => {
     const fetchPokemonsData = async () => {
       const pokemonDetails = await detallesApi(pokemonid);
       setPokemon(pokemonDetails);
-      console.log(pokemonDetails);
+      
     };
     fetchPokemonsData();
   }, [pokemonid]);
 
   return (
-    <div>
-      {/* <h2>{pokemon.name}</h2>
-      <img src={pokemon.imageUrl} alt={pokemon.name} /> */}
+    <div className="">
       <p>ID: {Pokemon.id}</p>
-      <p>{Pokemon.name}</p>
-     
+      <p> Nombre: {Pokemon.name}</p>
+      <p>Experiencia: {Pokemon.base_experience}</p>
+
+      
+      {/* <img src={Pokemon.other} alt={Pokemon.name} /> */}
+      
     </div>
   );
 };
