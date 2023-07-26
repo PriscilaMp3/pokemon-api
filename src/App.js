@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PokemonList from "./pages/pokemonlist/PokemonList";
 import Detallespokemon from "./pages/details/Details";
 import SearchBar from "./components/searchbar/Searchbar";
@@ -9,13 +10,14 @@ import "./App.css";
 
 const App = () => {
   const [pokemons, setPokemons] = useState([]);
-  const [busquedaPokemon, setbusquedaPokemon] = useState('');
+  const [busquedaPokemon, setbusquedaPokemon] = useState("");
   const [paginaInicio, setpaginaInicio] = useState(1);
 
   useEffect(() => {
     const fetchPokemonsData = async () => {
-      const pokemonDetails = await Apipokemon(paginaInicio); 
+      const pokemonDetails = await Apipokemon(paginaInicio);
       setPokemons(pokemonDetails);
+      console.log(pokemonDetails);
     };
     fetchPokemonsData();
   }, [paginaInicio]);
@@ -35,10 +37,16 @@ const App = () => {
   return (
     <div className="App">
       <h1>Pokédex</h1>
-      <SearchBar busquedaPokemon={busquedaPokemon} cambioPokemon={cambioPokemon} />
+      <SearchBar
+        busquedaPokemon={busquedaPokemon}
+        cambioPokemon={cambioPokemon}
+      />
       <Router>
-        <Routes> {/* Aquí se debe usar Routes en lugar de Router */}
-          <Route path="/" element={<PokemonList pokemons={pokemonsFiltrados} />} />
+        <Routes>
+          <Route
+            path="/"
+            element={<PokemonList pokemons={pokemonsFiltrados} />}
+          />
           <Route path="/pokemon/:id" element={<Detallespokemon />} />
         </Routes>
       </Router>

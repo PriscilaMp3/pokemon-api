@@ -1,6 +1,10 @@
 const Apipokemon = async (paginaInicio) => {
   try {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${(paginaInicio - 1) * 20}&limit=20`);
+    const response = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?offset=${
+        (paginaInicio - 1) * 20
+      }&limit=20`
+    );
     const data = await response.json();
     const pokemonsData = data.results;
     const Detallespokemon = await Promise.all(
@@ -10,7 +14,7 @@ const Apipokemon = async (paginaInicio) => {
         return {
           id: data.id,
           name: data.name,
-          imageUrl: data.sprites.front_default,
+          imageUrl: data.sprites.other.home.front_default,
         };
       })
     );
@@ -20,4 +24,4 @@ const Apipokemon = async (paginaInicio) => {
   }
 };
 
-export default Apipokemon ;
+export default Apipokemon;
