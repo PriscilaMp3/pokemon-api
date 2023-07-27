@@ -4,12 +4,14 @@ import PokemonCard from '../../components/cardspokemon/PokemonCard';
 
 const PokemonList = ({ pokemons }) => {
   return (
-    <div className="pokemon-list">
-      {pokemons.map((pokemon) => (
-        <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
-          <PokemonCard name={pokemon.name} imageUrl={pokemon.imageUrl} />
-        </Link>
-      ))}
+    <div >
+      <div className="pokemon-list">
+        {pokemons.map((pokemon) => (
+          <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
+            <PokemonCard name={pokemon.name} imageUrl={pokemon.imageUrl} />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

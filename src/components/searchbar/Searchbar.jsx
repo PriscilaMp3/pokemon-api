@@ -10,7 +10,7 @@ const SearchBar = ({ busquedaPokemon, cambioPokemon }) => {
         value={busquedaPokemon}
         onChange={cambioPokemon}
       />
-      <button className="btn-buscar">Buscar</button>
+      {/* <button className="btn-buscar">Buscar</button> */}
     </section>
   );
 };
