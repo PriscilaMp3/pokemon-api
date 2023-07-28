@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Pokédex</h1>
+<div className="navbar"></div>
       <SearchBar
         busquedaPokemon={busquedaPokemon}
         cambioPokemon={cambioPokemon}
