@@ -24,6 +24,7 @@ const App = () => {
 
   const cambioPokemon = (event) => {
     setbusquedaPokemon(event.target.value);
+    console.log(cambioPokemon);
   };
 
   const saltoPagina = (page) => {
@@ -36,7 +37,7 @@ const App = () => {
 
   return (
     <div className="App">
-<div className="navbar"></div>
+      <div className="navbar"></div>
       <SearchBar
         busquedaPokemon={busquedaPokemon}
         cambioPokemon={cambioPokemon}
