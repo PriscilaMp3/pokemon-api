@@ -2,11 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import detallesApi from "../../api/detallesApi";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-// import Evolution from "../../api/apievolucion";
+import Evolucionespokemon from "../../api/apievolucion";
 import "./Details.css";
 
-const Detallespokemon = ({ pokemon }) => {
+const Detallespokemon = ({ pokemon, pokemonId }) => {
   const [Pokemon, setPokemon] = useState({});
+  const [evolutions] = useState([]);
   const location = useLocation();
   const parametros = useParams();
   const navigate = useNavigate();
@@ -15,7 +16,8 @@ const Detallespokemon = ({ pokemon }) => {
     const fetchPokemonsData = async () => {
       const pokemonDetails = await detallesApi(pokemonid);
       setPokemon(pokemonDetails);
-    
+      console.log(pokemonId);
+      
     };
     fetchPokemonsData();
   }, [pokemonid]);
@@ -39,6 +41,13 @@ const Detallespokemon = ({ pokemon }) => {
         <p>Velocidad: {Pokemon.stats?.[5]?.base_stat}</p>
         <p>Defensa: {Pokemon.stats?.[2]?.base_stat}</p>
         <p>Salud: {Pokemon.stats?.[0]?.base_stat}</p>
+        <di>
+        <ul>
+        {evolutions.map(evolution => (
+          <li key={evolution.id}>{evolution.name}</li>
+        ))}
+      </ul>
+        </di>
       </div>
       <div className="img">
         {Pokemon.sprites && (

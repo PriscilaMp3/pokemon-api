@@ -1,14 +1,16 @@
-const Evolution = async ({ id }) => {
-  try {
-    const response = await fetch(
-      `https://pokeapi.co/api/v2/evolution-chain/` + { id }
-    );
-    const data = await response.json();
-    const pokemonsData = data.results;
-    return data;
-  } catch (error) {
-    return [];
-  }
+import React, { useEffect, useState } from 'react';
+
+const  Evolucionespokemon = ({ pokemonId }) => {
+    const [setEvolutions] = useState([]);
+
+
+  useEffect(() => {
+    fetch("https://api.example.com/pokemon/${pokemonId}/evolutions")
+      .then(response => response.json())
+      .then(data => setEvolutions(data))
+      
+  }, [pokemonId]);
+
 };
 
-export default Evolution;
+export default Evolucionespokemon;
