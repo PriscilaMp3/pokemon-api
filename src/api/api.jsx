@@ -16,6 +16,7 @@ const Apipokemon = async (paginaInicio) => {
           name: data.name,
           imageUrl: data.sprites.other.home.front_default,
           
+          
         };
       })
     );
