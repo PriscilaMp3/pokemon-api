@@ -5,6 +5,7 @@
   width: 100%;
   height: 100vh; /* Ajusta la altura al 100% de la altura visible de la ventana */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("img2.jpeg");
@@ -12,6 +13,16 @@
   background-size: cover;
 }
 
+.title {
+  text-decoration: underline;
+}
+
+.BTN {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
 .info {
   position: absolute;
   top: 10px;

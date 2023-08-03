@@ -11,4 +11,14 @@ const detallesApi = async (numeropokemon) => {
   }
 };
 
+
+
+
 export default detallesApi;
+
+
+
+
+
+
+

@@ -17,14 +17,14 @@ const App = () => {
     const fetchPokemonsData = async () => {
       const pokemonDetails = await Apipokemon(paginaInicio);
       setPokemons(pokemonDetails);
-      console.log(pokemonDetails);
+
     };
     fetchPokemonsData();
   }, [paginaInicio]);
 
   const cambioPokemon = (event) => {
     setbusquedaPokemon(event.target.value);
-    console.log(cambioPokemon);
+   
   };
 
   const saltoPagina = (page) => {
